@@ -679,6 +679,12 @@ static int dsi_panel_update_doze(struct dsi_panel *panel) {
 		break;
 	case DSI_DOZE_MODE_LP_HBM:
 		DSI_INFO("Entering doze HBM");
+	if (panel->fod_hbm_enabled) {
+		DSI_INFO("[%s] fod hbm enabled, skipping doze set\n");
+		return 0;
+	}
+
+	if (panel->doze_enabled) {
 		rc = dsi_panel_tx_cmd_set(panel, DSI_CMD_SET_MI_DOZE_HBM);
 		if (rc)
 			DSI_ERR("[%s] failed to send DSI_CMD_SET_MI_DOZE_HBM cmd, rc=%d\n",
