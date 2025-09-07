@@ -154,8 +154,9 @@ static int posix_timer_add(struct k_itimer *timer)
 		if ((sig->posix_timer_id == first_free_id) && (ret == -ENOENT))
 			/* Loop over all possible ids completed */
 			ret = -EAGAIN;
-		spin_unlock(&hash_lock);
-	} while (ret == -ENOENT);
+			spin_unlock(&hash_lock);
+	    	cond_resched();
+		} while (ret == -ENOENT);
 	return ret;
 }
 

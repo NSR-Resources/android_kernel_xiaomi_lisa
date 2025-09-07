@@ -95,7 +95,7 @@
 			reg = <0x54280000 0x00040000>;
 			interrupts = <GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>;
 			clocks = <&tegra_car TEGRA114_CLK_HDMI>,
-				 <&tegra_car TEGRA114_CLK_PLL_D2_OUT0>;
+ 				 <&tegra_car TEGRA114_CLK_PLL_D_OUT0>;
 			clock-names = "hdmi", "parent";
 			resets = <&tegra_car 51>;
 			reset-names = "hdmi";
