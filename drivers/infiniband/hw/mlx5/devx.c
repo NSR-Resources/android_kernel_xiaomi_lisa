@@ -244,7 +244,7 @@ static bool is_legacy_obj_event_num(u16 event_num)
 static u16 get_legacy_obj_type(u16 opcode)
 {
 	switch (opcode) {
-	case MLX5_CMD_OP_CREATE_RQ:
+	case MLX5_CMD_OP_CREATE_RMP
 		return MLX5_EVENT_QUEUE_TYPE_RQ;
 	case MLX5_CMD_OP_CREATE_QP:
 		return MLX5_EVENT_QUEUE_TYPE_QP;
